@@ -1,7 +1,10 @@
 
-@toolbar-bg: #444;
+@toolbar-font-size: 16px;
+@toolbar-font-family: "DejaVu Serif", sans-serif;
+@toolbar-bg: #353434;
 @toolbar-color: #eee;
-@toolbar-hover-color: #ffffff;
+@toolbar-hover-bg: #ffffff;
+@toolbar-hover-color: #EF4836;
 
 .Toolbar {
   position: fixed;
@@ -11,6 +14,8 @@
   line-height: 56px;
   background: @toolbar-bg;
   color: @toolbar-color;
+  font-size: @toolbar-font-size;
+  font-family: @toolbar-font-family;
 
   & > * {
     display: inline-block;
@@ -32,10 +37,11 @@
     cursor: pointer;
 
     &:hover {
-      background: rgba(red(@toolbar-hover-color),
-                       green(@toolbar-hover-color),
-                       blue(@toolbar-hover-color),
+      background: rgba(red(@toolbar-hover-bg),
+                       green(@toolbar-hover-bg),
+                       blue(@toolbar-hover-bg),
                        0.2);
+      color: @toolbar-hover-color;
     }
   }
 }

@@ -10,11 +10,7 @@ export default class ToolbarGroup extends React.Component {
 
   renderChildren(props) {
     return React.Children.map(props.children, child => {
-      if (!child.props.highlight) {
-        return React.cloneElement(child)
-      } else {
-        return child
-      }
+      return React.cloneElement(child)
     })
   }
 
