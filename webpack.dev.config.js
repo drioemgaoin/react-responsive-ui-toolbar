@@ -39,7 +39,7 @@ module.exports = {
 
   resolve: {
     fallback: paths.nodePaths,
-    extensions: ['', '.js', '.jsx', '.es6.jsx', '.scss', '.css'],
+    extensions: ['', '.js', '.jsx', '.es6.jsx', '.less', '.css'],
     alias: {
       // Support React Native Web
       // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
@@ -68,7 +68,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.scss$/,
+        test: /\.less$/,
         include: paths.appSrc,
         exclude: paths.appNodeModules,
         loader: combineLoaders([
@@ -79,21 +79,7 @@ module.exports = {
             loader: 'css-loader'
           },
           {
-            loader: 'sass-loader'
-          }
-        ])
-      },
-      {
-        test: /\.css$/,
-        loader: combineLoaders([
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader?importLoaders=1'
-          },
-          {
-            loader: 'postcss-loader'
+            loader: 'less-loader'
           }
         ])
       },
@@ -113,18 +99,6 @@ module.exports = {
       },
       {
         test: /\.jpg$/,
-        loader: 'file-loader'
-      },
-      {
-        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff'
-      },
-      {
-        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader?limit=10000&mimetype=application/octet-stream'
-      },
-      {
-        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader'
       },
       {

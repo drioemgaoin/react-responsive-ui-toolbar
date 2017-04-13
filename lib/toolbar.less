@@ -1,0 +1,41 @@
+
+@toolbar-bg: #444;
+@toolbar-color: #eee;
+@toolbar-hover-color: #ffffff;
+
+.Toolbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 56px;
+  line-height: 56px;
+  background: @toolbar-bg;
+  color: @toolbar-color;
+
+  & > * {
+    display: inline-block;
+  }
+
+  .ToolbarGroup {
+    & > * {
+      display: inline-block;
+    }
+
+    &--right {
+      float: right;
+    }
+  }
+
+  .ToolbarItem {
+    padding: 0px 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(red(@toolbar-hover-color),
+                       green(@toolbar-hover-color),
+                       blue(@toolbar-hover-color),
+                       0.2);
+    }
+  }
+}
