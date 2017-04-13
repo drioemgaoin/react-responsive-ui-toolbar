@@ -5,6 +5,7 @@
 @toolbar-color: #eee;
 @toolbar-hover-bg: #ffffff;
 @toolbar-hover-color: #EF4836;
+@toolbar-shadow-color: #595757;
 
 .Toolbar {
   position: fixed;
@@ -16,6 +17,10 @@
   color: @toolbar-color;
   font-size: @toolbar-font-size;
   font-family: @toolbar-font-family;
+  box-shadow: 0px 4px 2px rgba(red(@toolbar-shadow-color),
+                   green(@toolbar-shadow-color),
+                   blue(@toolbar-shadow-color),
+                   0.7);
 
   & > * {
     display: inline-block;
