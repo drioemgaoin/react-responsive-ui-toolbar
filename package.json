@@ -65,6 +65,7 @@
     "prop-types": "15.5.6",
     "react-dev-utils": "^0.5.2",
     "react-responsive": "1.2.7",
+    "react-router-dom": "4.1.1",
     "resolve-url-loader": "2.0.2",
     "rimraf": "^2.6.1",
     "style-loader": "0.12.4",

@@ -10,9 +10,9 @@ export default class ToolbarItem extends React.Component {
 
   render() {
     return (
-      <div className={this.className()}>
+      <a href={this.props.to} target='_self' className={this.className()}>
         {this.props.children}
-      </div>
+      </a>
     );
   }
 }

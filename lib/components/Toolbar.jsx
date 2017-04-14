@@ -16,6 +16,8 @@ export default class Toolbar extends React.Component {
     }
 
     close(event) {
+      event.preventDefault();
+
       this.refs.menu.className += '--collapsed';
     }
 
@@ -23,7 +25,7 @@ export default class Toolbar extends React.Component {
       return (
         <div className="Toolbar">
           <a href="#" className="Toolbar__Icon" onClick={(event) => this.handle(event)}></a>
-          <a href="#" className="Toolbar__Brand">Brand</a>
+          <a href="/" target="_self" className="Toolbar__Brand">Brand</a>
           <MediaQuery minWidth={1024}>
             <div ref='menu' className='Toolbar__Menu'>
               {this.props.children}
