@@ -25,6 +25,20 @@ export default class Toolbar extends React.Component {
       this.refs.menu.className += '--collapsed';
     }
 
+    renderChildren(props) {
+      return React.Children.map(props.children, child => {
+        return React.cloneElement(
+          child,
+          {
+            ...child.props,
+            close: function(event) {
+              this.props.close(event);
+            }.bind(this)
+          }
+        )
+      })
+    }
+
     render() {
       return (
         <div className="Toolbar">
@@ -37,7 +51,7 @@ export default class Toolbar extends React.Component {
           </MediaQuery>
           <MediaQuery maxWidth={1024}>
             <div ref='menu' className='Toolbar__Menu Toolbar__Menu--collapsed' onMouseLeave={(event) => this.close(event)}>
-              {this.props.children}
+              {this.renderChildren(this.props)}
             </div>
           </MediaQuery>
         </div>
