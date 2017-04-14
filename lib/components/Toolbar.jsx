@@ -21,16 +21,16 @@ export default class Toolbar extends React.Component {
 
     render() {
       return (
-        <div className="Toolbar" onMouseLeave={(event) => this.close(event)}>
+        <div className="Toolbar">
           <a href="#" className="Toolbar__Icon" onClick={(event) => this.handle(event)}></a>
           <a href="#" className="Toolbar__Brand">Brand</a>
           <MediaQuery minWidth={1024}>
-            <div ref='menu' className='Toolbar__Menu' onMouseLeave={(event) => this.close(event)}>
+            <div ref='menu' className='Toolbar__Menu'>
               {this.props.children}
             </div>
           </MediaQuery>
           <MediaQuery maxWidth={1024}>
-            <div ref='menu' className='Toolbar__Menu Toolbar__Menu--collapsed'>
+            <div ref='menu' className='Toolbar__Menu Toolbar__Menu--collapsed' onMouseLeave={(event) => this.close(event)}>
               {this.props.children}
             </div>
           </MediaQuery>
