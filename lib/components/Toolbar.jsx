@@ -6,7 +6,9 @@ export default class Toolbar extends React.Component {
       return (
         <header className="Toolbar">
           <a href="#" className="Toolbar__Icon" id="toolbar__icon"></a>
-          {this.props.children}
+          <div className='Toolbar__Menu'>
+            {this.props.children}
+          </div>
         </header>
       );
     }

@@ -22,9 +22,30 @@
                    blue(@toolbar-shadow-color),
                    0.7);
 
-  & > * {
-    display: inline-block;
+  .ToolbarItem {
+    padding: 0px 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+      background: rgba(red(@toolbar-hover-bg),
+                      green(@toolbar-hover-bg),
+                      blue(@toolbar-hover-bg),
+                      0.2);
+      color: @toolbar-hover-color;
+    }
   }
+}
+
+@media(min-width : 767px) {
+  .Toolbar__Menu {
+
+
+    & > * {
+      display: inline-block;
+    }
+  }
+
 
   .ToolbarGroup {
     & > * {
@@ -35,18 +56,44 @@
       float: right;
     }
   }
+}
 
-  .ToolbarItem {
-    padding: 0px 15px;
-    box-sizing: border-box;
-    cursor: pointer;
+@media(max-width : 767px) {
+  .Toolbar {
+    position: relative;
+    float:left;
+    width: 100%;
 
-    &:hover {
-      background: rgba(red(@toolbar-hover-bg),
-                       green(@toolbar-hover-bg),
-                       blue(@toolbar-hover-bg),
-                       0.2);
-      color: @toolbar-hover-color;
+    &__Icon {
+      position: absolute;
+      float: left;
+      width: 50px;
+      height: 56px;
+      cursor: pointer;
+      outline: 0;
+
+      &:after {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        content: "\2261";
+        font-size: 56px;
+        color: white;
+      }
+    }
+
+    &__Menu {
+      left: 0;
+      top: 0px;
+      bottom: 0;
+      background: @toolbar-bg;
+      color: @toolbar-color;
+      width: 100%;
+
+      > .ToolbarItem:first-child {
+        text-align: center;
+        margin-left: 50px;
+      }
     }
   }
 }
