@@ -5,7 +5,7 @@ export default class ToolbarGroup extends React.Component {
   constructor(props) {
     super(props);
 
-    this.className = bem.bind(null, this.constructor.name);
+    this.className = bem.bind(null, 'ToolbarGroup');
   }
 
   renderChildren(props) {
