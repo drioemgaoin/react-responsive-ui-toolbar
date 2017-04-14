@@ -7,6 +7,8 @@ const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const paths = require('./config/paths');
 const getClientEnvironment = require('./config/env');
 const combineLoaders = require('webpack-combine-loaders');
+const fs = require('fs');
+const path = require('path');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -23,6 +25,12 @@ const env = getClientEnvironment(publicUrl);
 
 // Note: defined here because it will be used more than once.
 const cssFilename = 'static/css/[name].[contenthash:8].css';
+
+// Create static directory if it doesn't exist for all media
+var dir = path.join(__dirname, '/static');
+if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+}
 
 // ExtractTextPlugin expects the build output to be flat.
 // (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
