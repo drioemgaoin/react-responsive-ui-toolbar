@@ -1,10 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
+import { Link } from 'react-router-dom';
+import bem from 'bem-classname';
 
 export default class Toolbar extends React.Component {
     constructor(props) {
       super(props);
+
+      this.className = bem.bind(null, this.constructor.name);
     }
 
     handle(event) {
@@ -25,7 +29,7 @@ export default class Toolbar extends React.Component {
       return (
         <div className="Toolbar">
           <a href="#" className="Toolbar__Icon" onClick={(event) => this.handle(event)}></a>
-          <a href="/" target="_self" className="Toolbar__Brand">Brand</a>
+          <Link to="/" className="Toolbar__Brand">Brand</Link>
           <MediaQuery minWidth={1024}>
             <div ref='menu' className='Toolbar__Menu'>
               {this.props.children}

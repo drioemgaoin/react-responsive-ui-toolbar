@@ -1,5 +1,6 @@
 import React from 'react'
 import bem from 'bem-classname';
+import { NavLink } from 'react-router-dom';
 
 export default class ToolbarItem extends React.Component {
   constructor(props) {
@@ -10,9 +11,9 @@ export default class ToolbarItem extends React.Component {
 
   render() {
     return (
-      <a href={this.props.to} target='_self' className={this.className()}>
+      <NavLink to={this.props.to} className={this.className()} activeClassName={this.className(['active'])}>
         {this.props.children}
-      </a>
+      </NavLink>
     );
   }
 }
