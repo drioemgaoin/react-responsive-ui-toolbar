@@ -48,13 +48,20 @@
   }
 }
 
-@media(min-width : 767px) {
-  .Toolbar__Menu {
-    & > * {
-      display: inline-block;
+@media(min-width : 1024px) {
+  .Toolbar {
+    &__Brand {
+      padding-left: 20px;
+    }
+
+    &__Menu {
+      display: inline;
+
+      & > * {
+        display: inline-block;
+      }
     }
   }
-
 
   .ToolbarGroup {
     & > * {
@@ -67,14 +74,14 @@
   }
 }
 
-@media(max-width : 767px) {
+@media(max-width : 1024px) {
   .Toolbar {
     position: relative;
     float:left;
     width: 100%;
 
     &__Brand {
-      margin-left: 20px;
+      padding-left: 20px;
     }
 
     &__Icon {
@@ -101,6 +108,10 @@
       background: @toolbar-bg;
       color: @toolbar-color;
       width: 100%;
+
+      &--collapsed {
+        display: none;
+      }
     }
   }
 }

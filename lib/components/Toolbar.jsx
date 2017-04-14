@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MediaQuery from 'react-responsive';
 
 export default class Toolbar extends React.Component {
     constructor(props) {
       super(props);
-
-      this.state = { show: false };
     }
 
     handle(event) {
       event.preventDefault();
 
-      this.setState({ show: !this.state.show });
+      this.refs.menu.className = this.refs.menu.className.endsWith('--collapsed')
+      ? this.refs.menu.className.replace('--collapsed', '')
+      : this.refs.menu.className + '--collapsed';
     }
 
     close(event) {
-      this.setState({ show: false });
+      this.refs.menu.className += '--collapsed';
     }
 
     render() {
@@ -23,13 +24,16 @@ export default class Toolbar extends React.Component {
         <div className="Toolbar" onMouseLeave={(event) => this.close(event)}>
           <a href="#" className="Toolbar__Icon" onClick={(event) => this.handle(event)}></a>
           <a href="#" className="Toolbar__Brand">Brand</a>
-          {
-            this.state.show && (
-              <div className='Toolbar__Menu'>
-                {this.props.children}
-              </div>
-            )
-          }
+          <MediaQuery minWidth={1024}>
+            <div ref='menu' className='Toolbar__Menu' onMouseLeave={(event) => this.close(event)}>
+              {this.props.children}
+            </div>
+          </MediaQuery>
+          <MediaQuery maxWidth={1024}>
+            <div ref='menu' className='Toolbar__Menu Toolbar__Menu--collapsed'>
+              {this.props.children}
+            </div>
+          </MediaQuery>
         </div>
       );
     }
