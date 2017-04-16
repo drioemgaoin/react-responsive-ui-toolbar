@@ -65,8 +65,10 @@ function getServedPath(appPackageJson) {
 module.exports = {
   appBuild: resolveApp('public'),
   appPublic: resolveApp('public'),
+  appLibrary: resolveApp('dist'),
   appHtml: resolveApp('index.html'),
   appIndexJs: resolveApp('lib/app.js'),
+  appLibIndexJs: resolveApp('lib/index.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('lib'),
   appStatic: resolveApp('static'),

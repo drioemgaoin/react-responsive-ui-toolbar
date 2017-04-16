@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build-prod.js",
-    "postinstall": "rimraf public && npm run build"
+    "build:npm": "rimraf dist && webpack -d --config webpack.npm.config.js --progress",
+    "prepublish": "npm run build:npm"
   },
   "author": {
     "name": "Romain Diegoni",
@@ -17,6 +18,7 @@
     "reactjs",
     "react-component"
   ],
+  "main": "dist/react-responsive-ui-toolbar.js",
   "bugs": {
     "url": "https://github.com/drioemgaoin/react-responsive-ui-toolbar/issues"
   },
