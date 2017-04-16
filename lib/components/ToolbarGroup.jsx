@@ -24,7 +24,10 @@ export default class ToolbarGroup extends React.Component {
 
   render() {
     return (
-      <div className={this.className({ right: this.props.float === 'right' })}>
+      <div className={this.className({
+          right: this.props.float === 'right',
+          hidden: this.props.hidden
+        })}>
         {this.renderChildren(this.props)}
       </div>
     );
