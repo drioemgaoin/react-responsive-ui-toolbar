@@ -5615,7 +5615,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return _react2.default.Children.map(props.children, function (child) {
 	        return _react2.default.cloneElement(child, _extends({}, child.props, {
 	          close: function (event) {
-	            this.props.close(event);
+	            if (this.props.close) {
+	              this.props.close(event);
+	            }
 	          }.bind(_this2)
 	        }));
 	      });

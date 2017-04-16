@@ -15,7 +15,9 @@ export default class ToolbarGroup extends React.Component {
         {
           ...child.props,
           close: function(event) {
-            this.props.close(event);
+            if (this.props.close) {
+                this.props.close(event);
+            }
           }.bind(this)
         }
       )
