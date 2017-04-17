@@ -13,7 +13,7 @@ export default class ToolbarItem extends React.Component {
     return (
       <a href={this.props.to}
         onClick={this.props.onClick}
-        className={this.className()}>
+        className={this.className({ active: this.props.isActive })}>
         {this.props.title}
       </a>
     );

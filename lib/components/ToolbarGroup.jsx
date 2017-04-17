@@ -15,6 +15,7 @@ export default class ToolbarGroup extends React.Component {
       return <ToolbarItem key={item.title}
           to={item.href}
           title={item.title}
+          isActive={item.href === this.props.pathname}
           onClick={this.props.onClick} />
     });
   }

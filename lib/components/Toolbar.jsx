@@ -11,6 +11,7 @@ export default class Toolbar extends React.Component {
       super(props);
 
       this.className = bem.bind(null, this.constructor.name);
+      this.state = { pathname: this.props.pathname };
     }
 
     handle(event) {
@@ -30,6 +31,8 @@ export default class Toolbar extends React.Component {
       this.refs.menu.className = this.refs.menu.className.endsWith('--collapsed')
       ? this.refs.menu.className
       : this.refs.menu.className + '--collapsed';
+
+      this.setState({ pathname: event.target.pathname });
     }
 
     renderChildren(items) {
@@ -38,11 +41,13 @@ export default class Toolbar extends React.Component {
         ? <ToolbarGroup key={item.name}
             visible={item.visible}
             float={item.float}
+            pathname={this.state.pathname}
             items={item.items}
             onClick={(e) => this.close(e)} />
         : <ToolbarItem key={item.title}
             to={item.href}
             title={item.title}
+            isActive={item.href === this.state.pathname}
             onClick={(e) => this.close(e)} />
     });
     }
