@@ -135,7 +135,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var _this = _possibleConstructorReturn(this, (Toolbar.__proto__ || Object.getPrototypeOf(Toolbar)).call(this, props));
 	
 	    _this.className = _bemClassname2.default.bind(null, _this.constructor.name);
-	    _this.state = { pathname: _this.props.pathname };
+	    _this.state = { pathname: window.location.pathname };
 	    return _this;
 	  }
 	

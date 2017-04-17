@@ -13,7 +13,7 @@ export default class Toolbar extends React.Component {
       super(props);
 
       this.className = bem.bind(null, this.constructor.name);
-      this.state = { pathname: this.props.pathname };
+      this.state = { pathname: window.location.pathname };
     }
 
     handle(event) {
