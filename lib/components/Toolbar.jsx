@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
-import { Link } from 'react-router-dom';
 import bem from 'bem-classname';
+
+import ToolbarGroup from './ToolbarGroup';
+import ToolbarItem from './ToolbarItem';
 
 export default class Toolbar extends React.Component {
     constructor(props) {
@@ -20,38 +22,43 @@ export default class Toolbar extends React.Component {
     }
 
     close(event) {
-      event.preventDefault();
+      if (this.props.history) {
+        event.preventDefault();
+        this.props.history.push({ pathname: event.target.pathname });
+      }
 
-      this.refs.menu.className += '--collapsed';
+      this.refs.menu.className = this.refs.menu.className.endsWith('--collapsed')
+      ? this.refs.menu.className
+      : this.refs.menu.className + '--collapsed';
     }
 
-    renderChildren(props) {
-      return React.Children.map(props.children, child => {
-        return React.cloneElement(
-          child,
-          {
-            ...child.props,
-            close: function(event) {
-              this.props.close(event);
-            }.bind(this)
-          }
-        )
-      })
+    renderChildren(items) {
+      return items.map(item => {
+        return item.name
+        ? <ToolbarGroup key={item.name}
+            visible={item.visible}
+            float={item.float}
+            items={item.items}
+            onClick={(e) => this.close(e)} />
+        : <ToolbarItem key={item.title}
+            to={item.href}
+            title={item.title}
+            onClick={(e) => this.close(e)} />
+    });
     }
 
     render() {
       return (
         <div className="Toolbar">
           <a href="#" className="Toolbar__Icon" onClick={(event) => this.handle(event)}></a>
-          <Link to="/" className="Toolbar__Brand">Brand</Link>
           <MediaQuery minWidth={1024}>
             <div ref='menu' className='Toolbar__Menu'>
-              {this.props.children}
+              {this.renderChildren(this.props.items)}
             </div>
           </MediaQuery>
           <MediaQuery maxWidth={1024}>
             <div ref='menu' className='Toolbar__Menu Toolbar__Menu--collapsed' onMouseLeave={(event) => this.close(event)}>
-              {this.renderChildren(this.props)}
+              {this.renderChildren(this.props.items)}
             </div>
           </MediaQuery>
         </div>

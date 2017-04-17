@@ -11,12 +11,11 @@ export default class ToolbarItem extends React.Component {
 
   render() {
     return (
-      <NavLink to={this.props.to}
-        onClick={this.props.close}
-        className={this.className()}
-        activeClassName={this.className(['active'])}>
-        {this.props.children}
-      </NavLink>
+      <a href={this.props.to}
+        onClick={this.props.onClick}
+        className={this.className()}>
+        {this.props.title}
+      </a>
     );
   }
 }

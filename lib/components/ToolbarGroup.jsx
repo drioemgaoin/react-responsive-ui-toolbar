@@ -1,6 +1,8 @@
 import React from 'react';
 import bem from 'bem-classname';
 
+import ToolbarItem from './ToolbarItem';
+
 export default class ToolbarGroup extends React.Component {
   constructor(props) {
     super(props);
@@ -8,29 +10,22 @@ export default class ToolbarGroup extends React.Component {
     this.className = bem.bind(null, 'ToolbarGroup');
   }
 
-  renderChildren(props) {
-    return React.Children.map(props.children, child => {
-      return React.cloneElement(
-        child,
-        {
-          ...child.props,
-          close: function(event) {
-            if (this.props.close) {
-                this.props.close(event);
-            }
-          }.bind(this)
-        }
-      )
-    })
+  renderChildren(items) {
+    return items.map(item => {
+      return <ToolbarItem key={item.title}
+          to={item.href}
+          title={item.title}
+          onClick={this.props.onClick} />
+    });
   }
 
   render() {
     return (
       <div className={this.className({
           right: this.props.float === 'right',
-          hidden: this.props.hidden
+          hidden: !this.props.visible
         })}>
-        {this.renderChildren(this.props)}
+        {this.renderChildren(this.props.items)}
       </div>
     );
   }
