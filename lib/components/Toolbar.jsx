@@ -6,6 +6,8 @@ import bem from 'bem-classname';
 import ToolbarGroup from './ToolbarGroup';
 import ToolbarItem from './ToolbarItem';
 
+import '../toolbar';
+
 export default class Toolbar extends React.Component {
     constructor(props) {
       super(props);
