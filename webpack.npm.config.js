@@ -87,17 +87,7 @@ module.exports = {
           test: /\.less$/,
           include: paths.appSrc,
           exclude: paths.appNodeModules,
-          loader: combineLoaders([
-            {
-              loader: 'style-loader'
-            },
-            {
-              loader: 'css-loader'
-            },
-            {
-              loader: 'less-loader'
-            }
-          ])
+          loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
         },
         {
             test: /(\.js)|(\.jsx)$/,
@@ -141,5 +131,9 @@ module.exports = {
         amd: 'react-dom'
       }
     }
+  ],
+
+  plugins: [
+    new ExtractTextPlugin("react-responsive-ui-toolbar.css")
   ]
 };

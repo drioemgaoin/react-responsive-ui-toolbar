@@ -82,6 +82,7 @@
     "babel-runtime": "~5.8.20",
     "bootstrap": "3.3.7",
     "child_process": "^1.0.2",
+    "extract-text-webpack-plugin": "1.0.1",
     "moment": "2.18.1",
     "node-sass": "^4.5.2",
     "react": "^15.5.3",

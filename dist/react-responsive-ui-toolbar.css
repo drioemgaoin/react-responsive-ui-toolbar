@@ -1,0 +1,96 @@
+.Toolbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 56px;
+  line-height: 56px;
+  background: #353434;
+  color: #eee;
+  font-size: 16px;
+  font-family: "DejaVu Serif", sans-serif;
+  box-shadow: 0px 4px 2px rgba(89, 87, 87, 0.7);
+}
+.Toolbar__Icon,
+.Toolbar__Brand {
+  display: inline-block;
+}
+.Toolbar a {
+  outline: 0;
+  color: #eee;
+  text-decoration: none;
+}
+.Toolbar .ToolbarGroup--hidden {
+  display: none;
+}
+.Toolbar .ToolbarItem {
+  padding: 0px 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+}
+.Toolbar .ToolbarItem:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #EF4836;
+}
+.Toolbar .ToolbarItem--active {
+  color: #EF4836;
+}
+@media (min-width: 1024px) {
+  .Toolbar__Brand {
+    padding: 0 15px;
+  }
+  .Toolbar__Menu {
+    display: inline;
+  }
+  .Toolbar__Menu > * {
+    display: inline-block;
+  }
+  .ToolbarGroup > * {
+    display: inline-block;
+  }
+  .ToolbarGroup--right {
+    float: right;
+  }
+}
+@media (max-width: 1024px) {
+  .Toolbar {
+    position: relative;
+    float: left;
+    width: 100%;
+  }
+  .Toolbar__Brand {
+    padding-left: 20px;
+  }
+  .Toolbar__Icon {
+    float: left;
+    width: 50px;
+    height: 56px;
+    cursor: pointer;
+    outline: 0;
+  }
+  .Toolbar__Icon:after {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    content: "\2261";
+    font-size: 56px;
+    color: white;
+  }
+  .Toolbar__Menu {
+    z-index: 9999;
+    position: absolute;
+    left: 0;
+    top: 56px;
+    background: #353434;
+    color: #eee;
+    width: 100%;
+  }
+  .Toolbar__Menu--collapsed {
+    display: none;
+  }
+  .Toolbar .ToolbarItem {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=react-responsive-ui-toolbar.css.map*/
