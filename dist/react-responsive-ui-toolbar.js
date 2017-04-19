@@ -193,9 +193,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	          { href: '#', className: 'Toolbar__Icon', onClick: function onClick(event) {
 	              return _this3.handle(event);
 	            } },
-	          _react2.default.createElement('div', null),
-	          _react2.default.createElement('div', null),
-	          _react2.default.createElement('div', null)
+	          _react2.default.createElement('div', { className: 'Toolbar__Icon__Bar' }),
+	          _react2.default.createElement('div', { className: 'Toolbar__Icon__Bar' }),
+	          _react2.default.createElement('div', { className: 'Toolbar__Icon__Bar' })
 	        ),
 	        _react2.default.createElement(
 	          _reactResponsive2.default,

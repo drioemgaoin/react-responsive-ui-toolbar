@@ -69,7 +69,7 @@
     cursor: pointer;
     border: 1px solid #ffffff;
   }
-  .Toolbar__Icon div {
+  .Toolbar__Icon__Bar {
     margin: 4px 0;
     padding: 0;
     background-color: #ffffff;

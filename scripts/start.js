@@ -6,6 +6,7 @@ const chalk = require('chalk');
 const path = require('path');
 
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
+const isInteractive = process.stdout.isTTY;
 
 require('dotenv').config({silent: true});
 
@@ -20,8 +21,7 @@ if (process.env.NODE_ENV === 'production') {
 
   console.log(`Listening at http://localhost:${DEFAULT_PORT}`);
 
-} else  {
-
+} else {
   detect(DEFAULT_PORT).then(port => {
     if (port === DEFAULT_PORT) {
       var protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
