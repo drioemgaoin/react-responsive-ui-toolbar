@@ -62,19 +62,20 @@
     padding-left: 20px;
   }
   .Toolbar__Icon {
-    float: left;
-    width: 50px;
-    height: 56px;
+    margin: 0;
+    padding: 15px;
+    width: 25px;
+    height: 24px;
     cursor: pointer;
-    outline: 0;
+    border: 1px solid #ffffff;
   }
-  .Toolbar__Icon:after {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    content: "\2261";
-    font-size: 56px;
-    color: white;
+  .Toolbar__Icon div {
+    margin: 4px 0;
+    padding: 0;
+    background-color: #ffffff;
+    border-radius: 2px;
+    border-style: none;
+    height: 3px;
   }
   .Toolbar__Menu {
     z-index: 9999;

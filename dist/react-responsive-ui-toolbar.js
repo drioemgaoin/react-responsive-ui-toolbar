@@ -57,7 +57,7 @@ return /******/ (function(modules) { // webpackBootstrap
   \******************/
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(/*! /Users/romaindiegoni/Documents/Root/Projects/ruby/react-responsive-ui-toolbar/lib/index.js */1);
+	module.exports = __webpack_require__(/*! C:\Users\romain.diegoni\Documents\Root\Projects\ruby\react-responsive-ui-toolbar\lib\index.js */1);
 
 
 /***/ }),
@@ -188,9 +188,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'Toolbar' },
-	        _react2.default.createElement('a', { href: '#', className: 'Toolbar__Icon', onClick: function onClick(event) {
-	            return _this3.handle(event);
-	          } }),
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#', className: 'Toolbar__Icon', onClick: function onClick(event) {
+	              return _this3.handle(event);
+	            } },
+	          _react2.default.createElement('div', null),
+	          _react2.default.createElement('div', null),
+	          _react2.default.createElement('div', null)
+	        ),
 	        _react2.default.createElement(
 	          _reactResponsive2.default,
 	          { minWidth: 1024 },

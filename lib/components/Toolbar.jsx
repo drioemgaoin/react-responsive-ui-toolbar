@@ -58,9 +58,9 @@ export default class Toolbar extends React.Component {
       return (
         <div className="Toolbar">
           <a href="#" className="Toolbar__Icon" onClick={(event) => this.handle(event)}>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div className="Toolbar__Icon__Bar"></div>
+            <div className="Toolbar__Icon__Bar"></div>
+            <div className="Toolbar__Icon__Bar"></div>
           </a>
           <MediaQuery minWidth={1024}>
             <div ref='menu' className='Toolbar__Menu'>
