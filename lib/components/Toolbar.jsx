@@ -50,14 +50,18 @@ export default class Toolbar extends React.Component {
             to={item.href}
             title={item.title}
             isActive={item.href === this.state.pathname}
-            onClick={(e) => this.close(e)} />
+            onClick={(e) => this.close(e)} />;
     });
     }
 
     render() {
       return (
         <div className="Toolbar">
-          <a href="#" className="Toolbar__Icon" onClick={(event) => this.handle(event)}></a>
+          <a href="#" className="Toolbar__Icon" onClick={(event) => this.handle(event)}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </a>
           <MediaQuery minWidth={1024}>
             <div ref='menu' className='Toolbar__Menu'>
               {this.renderChildren(this.props.items)}
