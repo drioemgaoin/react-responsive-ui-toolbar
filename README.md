@@ -1,27 +1,21 @@
-# react responsive ui toolbar
+[Live Demo](https://react-responsive-toolbar.herokuapp.com/)
+___
+React Responsive Toolbar is an responsive toolbar allow developer to integrate quickly a responsive toolbar with a default style.
 
-Get the AMD module located at `react-responsive-ui-toolbar.js` and include it in your project.
-
-Here is a sample integration:
-
-```js
-require.config({
-  paths: {
-    'react': 'vendor/bower_components/react/react',
-    'Toolbar': 'react-responsive-ui-toolbar'
-  }
-});
-
-require(['react', 'Toolbar'], function(React, Toolbar) {
-
-  React.render(React.createElement(Toolbar), document.getElementById('widget-container'));
-
-});
+# Installation
+To install this component, you can
+- clone the repository itself and run the right command following the environment:
+```
+In Development
+$ npm run start
+```
+```
+In Production
+$ npm run build
+$ npm run start
 ```
 
-## Development
-
-* Development server `npm start`.
-* Continuously run tests on file changes `npm run watch-test`;
-* Run tests: `npm test`;
-* Build `npm run build`;
+- Install the npm package available [here](https://www.npmjs.com/package/react-responsive-ui-toolbar) by running the following command in your project
+```
+$ npm install --save react-responsive-ui-toolbar
+```
